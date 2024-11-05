@@ -6,7 +6,7 @@ import { FaStar } from "react-icons/fa";
 const ProductItem = ({ product }) => {
   return (
     <motion.div
-      className="p-3 border rounded-lg bg-white shadow-lg max-w-sm mx-auto"
+      className="p-4 border rounded-lg bg-white shadow-md max-w-xs mx-auto hover:shadow-lg transition-shadow duration-300"
       whileHover={{ scale: 1.03 }}
       whileTap={{ scale: 0.97 }}
     >
@@ -15,7 +15,7 @@ const ProductItem = ({ product }) => {
           <img
             src={product.images[0]}
             alt={product.title}
-            className="w-full h-36 object-cover rounded-t-lg"
+            className="w-full h-48 object-cover rounded-t-lg"
           />
           {product.offPercent > 0 && (
             <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
@@ -24,7 +24,7 @@ const ProductItem = ({ product }) => {
           )}
         </div>
 
-        <div className="mt-3 space-y-1">
+        <div className="mt-3 space-y-2">
           <h2 className="text-sm font-semibold line-clamp-2">
             {product.title}
           </h2>
@@ -56,13 +56,6 @@ const ProductItem = ({ product }) => {
           </div>
         </div>
       </Link>
-
-      {/* <button
-        className="mt-3 w-full py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition"
-        onClick={() => console.log("Add to cart")}
-      >
-        Add To Cart
-      </button> */}
     </motion.div>
   );
 };

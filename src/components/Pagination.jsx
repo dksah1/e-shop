@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 // import pagiLeft from "../assets/img/icons/arrow-left.svg";
 // import pagiright from "../assets/img/icons/arrow-right.svg";
 

@@ -8,9 +8,9 @@ const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > lastScrollY) {
-        setShowHeader(true); // Show header on scroll down
+        setShowHeader(true);
       } else {
-        setShowHeader(false); // Hide header on scroll up
+        setShowHeader(false);
       }
       setLastScrollY(window.scrollY);
     };
@@ -24,7 +24,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: showHeader ? 0 : -100 }}
       transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 w-full bg-white shadow-md z-50"
+      className="fixed top-0 left-0 w-full bg-white shadow-md z-50 rounded-b-2xl" // Added `rounded-b-lg` here
     >
       <header className="flex justify-between items-center p-4 max-w-6xl mx-auto">
         <h1 className="text-2xl font-bold">E-Shop</h1>
