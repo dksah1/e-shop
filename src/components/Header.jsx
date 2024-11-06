@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Header = ({ searchTerm, setSearchTerm }) => {
+const Header = ({ searchTerm, setSearchTerm, cartQuantity }) => {
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
@@ -22,17 +22,17 @@ const Header = ({ searchTerm, setSearchTerm }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 left-0 z-50 h-16 flex items-center transition-all duration-300 ${
+      className={`fixed w-full top-0 left-0 z-50 sm:h-16 h-24 flex items-center transition-all duration-300 ${
         scrolling
           ? "bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg"
           : "bg-gradient-to-r from-blue-500 to-purple-600 bg-opacity-70"
       } ${scrolling ? "rounded-b-lg" : ""}`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4">
-        <div className="text-2xl font-bold text-white capitalize">
+      <div className="container mx-auto flex sm:flex-row flex-col items-center justify-between px-4">
+        <div className="text-2xl  font-bold text-white capitalize">
           <Link to="/">swiftshopify</Link>
         </div>
-        <nav className="space-x-6 hidden sm:flex">
+        <nav className="space-x-6 hidden md:flex">
           {["Home", "Products", "About", "Contact"].map((item) => (
             <motion.a
               key={item}
@@ -54,11 +54,16 @@ const Header = ({ searchTerm, setSearchTerm }) => {
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-64 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-300 transition h-10 mr-4"
+            className="w-44 sm:w-64 md:w-96 ml-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-300 transition h-10 mr-4"
           />
-          <Link to="/cart">
-            <button className="flex items-center justify-center bg-yellow-400 text-white rounded-full p-4 shadow-md hover:bg-yellow-500 transition">
-              <FaShoppingCart className="h-6 w-6" />
+          <Link to="/cart" className="relative">
+            <button className="flex items-center justify-centern bg-yellow-400 text-white rounded-full p-4 shadow-md hover:bg-yellow-500 transition ">
+              <FaShoppingCart className="h-6 w-6 " />
+              {cartQuantity > 0 && (
+                <span className="absolute top-0 right-0 bg-red-500 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
+                  {cartQuantity}
+                </span>
+              )}
             </button>
           </Link>
         </div>

@@ -61,7 +61,7 @@ const CartDetail = () => {
     );
 
   return (
-    <div className="bg-white mt-16 flex justify-center px-4">
+    <div className="bg-white sm:mt-16 mt-24  flex justify-center px-4">
       <div className="flex flex-col w-full max-w-5xl">
         <div className="flex justify-between items-center">
           <h2 className="text-2xl font-semibold mb-4 text-gray-800">
