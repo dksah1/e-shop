@@ -23,7 +23,7 @@ const ProductList = () => {
 
   return (
     <>
-      <div className="w-full flex items-center justify-between px-4 pt-3  shadow-sm border-b border-gray-200">
+      <div className=" w-full mt-12 flex items-center justify-between px-4 pt-3  shadow-sm border-b border-gray-200">
         <input
           type="text"
           placeholder="Search products..."

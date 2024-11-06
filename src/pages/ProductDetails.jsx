@@ -16,9 +16,6 @@ const ProductDetails = () => {
   const [cartId, setCartId] = useState(localStorage.getItem("cart_id"));
 
   const { mutate: addItemToCart } = useAddItemToCart();
-  // console.log("productId", product?.data?._id);
-
-  // Handler for adding item to cart
   const handleAddToCart = async () => {
     if (!cartId) {
       const cartRes = await createNewCart();
@@ -81,12 +78,11 @@ const ProductDetails = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="mx-auto p-8 bg-gray-50 min-h-screen"
+      className="mx-auto mt-16 p-8 bg-gray-50 min-h-screen"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
-        {/* Product Images */}
         <div className="flex gap-4 items-center lg:items-start">
-          <div className="flex gap-4 mb-4 lg:mb-8">
+          <div className="flex flex-col gap-4 mb-4 lg:mb-8">
             {images.map((image, idx) => (
               <img
                 key={idx}
@@ -180,24 +176,24 @@ const ProductDetails = () => {
               </button>
             </div>
           </div>
-
-          {/* Ratings and Reviews */}
-          <div className="mt-8">
-            <h2 className="text-xl font-bold text-gray-800 mb-2">
-              Ratings and Reviews
-            </h2>
-            <div className="flex items-center mb-4">
-              <div className="text-yellow-500 text-xl">
-                {Array.from({ length: Math.floor(ratings) }).map((_, i) => "★")}
-                {ratings % 1 ? "☆" : ""}
-              </div>
-              <p className="text-gray-600 ml-2">{ratings} / 5</p>
-            </div>
-            <p className="text-gray-500">No reviews yet.</p>
-          </div>
         </div>
       </div>
       {/* Product Description */}
+
+      {/* Ratings and Reviews */}
+      <div className="mt-8">
+        <h2 className="text-xl font-bold text-gray-800 mb-2">
+          Ratings and Reviews
+        </h2>
+        <div className="flex items-center mb-4">
+          <div className="text-yellow-500 text-xl">
+            {Array.from({ length: Math.floor(ratings) }).map((_, i) => "★")}
+            {ratings % 1 ? "☆" : ""}
+          </div>
+          <p className="text-gray-600 ml-2">{ratings} / 5</p>
+        </div>
+        <p className="text-gray-500">No reviews yet.</p>
+      </div>
       <div className="mt-8">
         <h2 className="text-xl font-bold text-gray-800 mb-2">
           Product Description

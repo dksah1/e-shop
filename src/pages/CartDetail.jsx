@@ -60,14 +60,14 @@ const CartDetail = () => {
   };
 
   return (
-    <div className="bg-white ">
+    <div className="bg-white mt-16 ">
       <div className="flex justify-around">
         <h2 className="text-2xl font-semibold mb-4 text-gray-800">
           Cart Details
         </h2>
         <Link to="/">
           <button>
-            <HiArrowLeft className="w-12 h-12 " />
+            <HiArrowLeft className="w-12 h-12 text-blue-500" />
           </button>
         </Link>
       </div>

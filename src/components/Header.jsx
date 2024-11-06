@@ -1,57 +1,61 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Header = () => {
-  const [showHeader, setShowHeader] = useState(false);
-  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > lastScrollY) {
-        setShowHeader(true);
+      if (window.scrollY > 50) {
+        setScrolling(true);
       } else {
-        setShowHeader(false);
+        setScrolling(false);
       }
-      setLastScrollY(window.scrollY);
     };
-
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   return (
-    <motion.div
+    <motion.header
       initial={{ y: -100 }}
-      animate={{ y: showHeader ? 0 : -100 }}
-      transition={{ duration: 0.3 }}
-      className="fixed top-0 left-0 w-full bg-white shadow-md z-50 rounded-b-2xl"
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed w-full top-0 left-0 z-50 h-16 flex items-center transition-colors duration-300 ${
+        scrolling ? "bg-white shadow-md" : "bg-transparent"
+      }  ${scrolling ? "rounded-b-lg" : ""}`}
     >
-      <header className="flex justify-between items-center p-4 max-w-6xl mx-auto">
-        <h1 className="text-2xl font-bold">E-Shop</h1>
-
-        <nav className="space-x-4 hidden sm:block">
-          <a href="/" className="text-gray-700 hover:text-gray-900">
-            Home
-          </a>
-          <a href="#products" className="text-gray-700 hover:text-gray-900">
-            Products
-          </a>
-          <a href="#about" className="text-gray-700 hover:text-gray-900">
-            About
-          </a>
-          <a href="#contact" className="text-gray-700 hover:text-gray-900">
-            Contact
-          </a>
+      <div className="container mx-auto flex items-center justify-between px-4 ">
+        <div className="text-xl font-bold text-gray-800">E-Shop</div>
+        <nav className="flex space-x-6">
+          {["Home", "Products", "About", "Contact"].map((item) => (
+            <motion.a
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="relative text-gray-700 font-medium hover:text-blue-600 transition-colors"
+              whileHover={{
+                scale: 1.1,
+                color: "#2563EB", // Tailwind's blue-600 hex color
+              }}
+            >
+              {item}
+              {/* Underline effect */}
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 scale-x-0 hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+            </motion.a>
+          ))}
         </nav>
         <Link to="/cart">
           <button className="ml-4 flex items-center justify-center bg-blue-600 text-white rounded-full p-4 shadow-md hover:bg-blue-700 transition">
             <FaShoppingCart className="h-6 w-6" />
           </button>
         </Link>
-      </header>
-    </motion.div>
+      </div>
+    </motion.header>
   );
 };
 
