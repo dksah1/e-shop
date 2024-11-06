@@ -6,7 +6,7 @@ import Pagination from "./Pagination";
 const ProductList = () => {
   const [page, setPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState("");
-  const { data, error, isLoading } = useGetAll({ page, limit: 10 });
+  const { data, error, isLoading } = useGetAll({ page, limit: 5 });
 
   if (isLoading) return <p>Loading...</p>;
   if (error) return <p>Error: {error.message}</p>;

@@ -1,6 +1,5 @@
 import React from "react";
-// import pagiLeft from "../assets/img/icons/arrow-left.svg";
-// import pagiright from "../assets/img/icons/arrow-right.svg";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 export const Pagination = ({ pageInfo, handlePageChange }) => {
   const hasPreviousPage = () => {
@@ -32,28 +31,37 @@ export const Pagination = ({ pageInfo, handlePageChange }) => {
   const displayRange = `${startIndex} - ${endIndex} of ${pageInfo?.total}`;
 
   return (
-    <div className="pagination-wrapper">
+    <div className="flex justify-end mx-4 my-3 ">
       {hasData() && (
         <div className="flex items-center">
           <div className="pr-5 text-item text-14 font-500">
             {pageInfo?.total && <p>{displayRange}</p>}
           </div>
-          <div className="flex">
-            <div className="pr-1 common-btn pagi-btn">
-              <button
-                disabled={!hasPreviousPage()}
-                onClick={() => gotoPreviousPage()}
-              >
-                {"<"}
-                {/* <img src={pagiLeft} /> */}
-              </button>
-            </div>
-            <div className="common-btn pagi-btn">
-              <button disabled={!hasNextPage()} onClick={() => gotoNextPage()}>
-                {/* <img src={pagiright} /> */}
-                {">"}
-              </button>
-            </div>
+
+          <div className="flex items-center space-x-4">
+            <button
+              disabled={!hasPreviousPage()}
+              onClick={() => gotoPreviousPage()}
+              className={`flex items-center justify-center w-10 h-10 rounded-full ${
+                hasPreviousPage()
+                  ? "bg-blue-500 text-white hover:bg-blue-600 shadow-md transition duration-200"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              }`}
+            >
+              <FaChevronLeft size={16} />
+            </button>
+
+            <button
+              disabled={!hasNextPage()}
+              onClick={() => gotoNextPage()}
+              className={`flex items-center justify-center w-10 h-10 rounded-full ${
+                hasNextPage()
+                  ? "bg-blue-500 text-white hover:bg-blue-600 shadow-md transition duration-200"
+                  : "bg-gray-300 text-gray-500 cursor-not-allowed"
+              }`}
+            >
+              <FaChevronRight size={16} />
+            </button>
           </div>
         </div>
       )}

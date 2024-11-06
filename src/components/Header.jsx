@@ -31,12 +31,14 @@ const Header = () => {
       }  ${scrolling ? "rounded-b-lg" : ""}`}
     >
       <div className="container mx-auto flex items-center justify-between px-4 ">
-        <div className="text-xl font-bold text-gray-800">E-Shop</div>
+        <Link to="/">
+          <div className="text-xl font-bold text-gray-800">E-Shop</div>
+        </Link>
         <nav className="flex space-x-6">
           {["Home", "Products", "About", "Contact"].map((item) => (
             <motion.a
               key={item}
-              href={`#${item.toLowerCase()}`}
+              href="/"
               className="relative text-gray-700 font-medium hover:text-blue-600 transition-colors"
               whileHover={{
                 scale: 1.1,
