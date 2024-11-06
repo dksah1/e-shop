@@ -4,11 +4,7 @@ import { motion } from "framer-motion";
 
 const ProductPage = () => {
   return (
-    <motion.div
-      initial={{ x: "-100vw" }}
-      animate={{ x: 0 }}
-      transition={{ type: "spring", stiffness: 100 }}
-    >
+    <motion.div>
       <ProductList />
     </motion.div>
   );
