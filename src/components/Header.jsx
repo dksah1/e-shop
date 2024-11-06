@@ -3,16 +3,12 @@ import { motion } from "framer-motion";
 import { FaShoppingCart } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ searchTerm, setSearchTerm }) => {
   const [scrolling, setScrolling] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setScrolling(true);
-      } else {
-        setScrolling(false);
-      }
+      setScrolling(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
 
@@ -26,36 +22,46 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 left-0 z-50 h-16 flex items-center transition-colors duration-300 ${
-        scrolling ? "bg-white shadow-md" : "bg-transparent"
-      }  ${scrolling ? "rounded-b-lg" : ""}`}
+      className={`fixed w-full top-0 left-0 z-50 h-16 flex items-center transition-all duration-300 ${
+        scrolling
+          ? "bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg"
+          : "bg-transparent"
+      } ${scrolling ? "rounded-b-lg" : ""}`}
     >
-      <div className="container mx-auto flex items-center justify-between px-4 ">
+      <div className="container mx-auto flex items-center justify-between px-4">
         <Link to="/">
-          <div className="text-xl font-bold text-gray-800">E-Shop</div>
+          <div className="text-2xl font-bold text-white">E-Shop</div>
         </Link>
-        <nav className=" space-x-6 hidden sm:flex ">
+        <nav className="space-x-6 hidden sm:flex">
           {["Home", "Products", "About", "Contact"].map((item) => (
             <motion.a
               key={item}
               href="/"
-              className="relative text-gray-700 font-medium hover:text-blue-600 transition-colors"
+              className="relative text-white font-medium hover:text-yellow-400 transition-colors"
               whileHover={{
                 scale: 1.1,
-                color: "#2563EB", // Tailwind's blue-600 hex color
+                color: "#FBBF24",
               }}
             >
               {item}
-              {/* Underline effect */}
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-600 scale-x-0 hover:scale-x-100 transition-transform duration-300 origin-left"></span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-yellow-400 scale-x-0 hover:scale-x-100 transition-transform duration-300 origin-left"></span>
             </motion.a>
           ))}
         </nav>
-        <Link to="/cart">
-          <button className="ml-4 flex items-center justify-center bg-blue-600 text-white rounded-full p-4 shadow-md hover:bg-blue-700 transition">
-            <FaShoppingCart className="h-6 w-6" />
-          </button>
-        </Link>
+        <div className="flex items-center">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-64 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-300 transition h-10 mr-4"
+          />
+          <Link to="/cart">
+            <button className="flex items-center justify-center bg-yellow-400 text-white rounded-full p-4 shadow-md hover:bg-yellow-500 transition">
+              <FaShoppingCart className="h-6 w-6" />
+            </button>
+          </Link>
+        </div>
       </div>
     </motion.header>
   );

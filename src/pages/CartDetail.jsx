@@ -95,7 +95,7 @@ const CartDetail = () => {
                         Price: ${item.price}
                       </p>
                       <p className="text-sm text-gray-500">
-                        Subtotal: ${item.subTotal}
+                        Subtotal: ${item.subTotal.toFixed(2)}
                       </p>
                     </div>
                     <div className="flex items-center space-x-2">

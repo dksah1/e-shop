@@ -1,11 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import ProductList from "../components/ProductList";
 import { motion } from "framer-motion";
+import Header from "../components/Header";
 
 const ProductPage = () => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <motion.div>
-      <ProductList />
+      <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />{" "}
+      <ProductList searchTerm={searchTerm} />
     </motion.div>
   );
 };

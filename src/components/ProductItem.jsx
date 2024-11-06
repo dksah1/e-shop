@@ -1,56 +1,52 @@
-import React, { useState } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 const ProductItem = ({ product }) => {
-  // State to control visibility of details on mobile
-  const [showDetails, setShowDetails] = useState(false);
-
   return (
     <motion.div
-      className="group relative w-full sm:w-64 h-80 bg-white border rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300"
-      whileHover={{ scale: 1.03 }}
-      whileTap={{ scale: 0.97 }}
-      onClick={() => setShowDetails(!showDetails)}
+      className="relative flex flex-col items-center justify-start w-full sm:w-48 h-72 bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300 mt-6 mx-2"
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.98 }}
     >
       <Link to={`/product/${product.slug}`} className="h-full w-full block">
-        <div className="h-full w-full overflow-hidden relative">
+        <div className="flex flex-col h-full w-full">
           {/* Product Image */}
-          <img
-            src={product.images[0]}
-            alt={product.title}
-            className="w-full h-full object-cover transition-transform duration-300"
-          />
-          {product.offPercent > 0 && (
-            <div className="absolute top-2 right-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-              -{product.offPercent}%
-            </div>
-          )}
+          <div className="h-3/5 w-full overflow-hidden relative">
+            <img
+              src={product.images[0]}
+              alt={product.title}
+              className="w-full h-full object-cover transition-transform duration-300"
+            />
+            {product.offPercent > 0 && (
+              <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
+                -{product.offPercent}%
+              </div>
+            )}
+          </div>
 
-          {/* Product Details - Initially hidden, shows on hover */}
-          <div
-            className={`absolute bottom-0 left-0 w-full bg-white bg-opacity-90 p-4 space-y-2 transform ${
-              showDetails || "translate-y-full" // For mobile, toggle visibility
-            } group-hover:translate-y-0 transition-transform duration-300 ease-in-out`}
-          >
-            <h2 className="text-sm font-semibold line-clamp-2 text-gray-800">
+          {/* Product Details */}
+          <div className="h-2/5 w-full bg-white p-2  space-y-1">
+            <h2 className="text-xs font-semibold text-gray-800 text-left line-clamp-2">
               {product.title}
             </h2>
-            <p className="text-xs text-gray-500">Brand: {product.brand.name}</p>
+            <p className="text-xs text-gray-500 text-left">
+              Brand: {product.brand.name}
+            </p>
 
-            <div className="flex items-center space-x-2">
-              <span className="text-base font-bold text-gray-900">
-                ${product.price}
+            <div className="flex items-center space-x-1 text-left">
+              <span className="text-sm font-bold text-orange-500">
+                Rs.{product.price}
               </span>
               {product.offPercent > 0 && (
-                <span className="text-sm text-gray-500 line-through">
-                  ${product.strikePrice}
+                <span className="text-xs text-gray-500 line-through">
+                  Rs.{product.strikePrice}
                 </span>
               )}
             </div>
 
-            <div className="flex items-center text-yellow-400 text-xs">
+            <div className="flex items-center text-yellow-400 text-xs ">
               {Array.from({ length: 5 }).map((_, i) => (
                 <FaStar
                   key={i}
@@ -61,7 +57,7 @@ const ProductItem = ({ product }) => {
                   }`}
                 />
               ))}
-              <span className="ml-2 text-gray-500">
+              <span className="ml-1 text-gray-500">
                 ({product.totalRatings})
               </span>
             </div>
