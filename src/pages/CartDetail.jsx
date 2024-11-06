@@ -3,7 +3,7 @@ import { useGetCartDetails, useUpdateItemInCart } from "../hooks/useCartHooks";
 import { HiArrowLeft } from "react-icons/hi";
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
-
+import { RingLoader } from "react-spinners";
 const CartDetail = () => {
   const [cartDetail, setCartDetail] = useState("");
   const [totalAmount, setTotalAmount] = useState(0);
@@ -25,7 +25,6 @@ const CartDetail = () => {
       );
       setCartDetail(filteredValue);
 
-      // Calculate total amount
       const total = filteredValue.reduce(
         (sum, item) => sum + item?.subTotal,
         0
@@ -49,7 +48,11 @@ const CartDetail = () => {
   };
 
   if (isLoading)
-    return <div className="text-center text-gray-500">Loading...</div>;
+    return (
+      <div className="flex items-center justify-center w-full h-screen bg-blue-200">
+        <RingLoader className="w-full h-full" />
+      </div>
+    );
   if (isError)
     return (
       <div className="text-center text-red-500">

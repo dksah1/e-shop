@@ -7,6 +7,7 @@ import { FiShoppingCart, FiHeart } from "react-icons/fi";
 import { createNewCart } from "../api/productApi";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { RingLoader } from "react-spinners";
 
 const ProductDetails = () => {
   const navigate = useNavigate();
@@ -55,7 +56,12 @@ const ProductDetails = () => {
     if (quantity > 1) setQuantity(quantity - 1);
   };
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div className="flex items-center justify-center w-full h-screen bg-blue-200">
+        <RingLoader className="w-full h-full" />
+      </div>
+    );
   if (isError) return <div>Error loading product details.</div>;
 
   const productData = product?.data;

@@ -25,13 +25,13 @@ const Header = ({ searchTerm, setSearchTerm }) => {
       className={`fixed w-full top-0 left-0 z-50 h-16 flex items-center transition-all duration-300 ${
         scrolling
           ? "bg-gradient-to-r from-blue-500 to-purple-600 shadow-lg"
-          : "bg-transparent"
+          : "bg-gradient-to-r from-blue-500 to-purple-600 bg-opacity-70"
       } ${scrolling ? "rounded-b-lg" : ""}`}
     >
       <div className="container mx-auto flex items-center justify-between px-4">
-        <Link to="/">
-          <div className="text-2xl font-bold text-white">E-Shop</div>
-        </Link>
+        <div className="text-2xl font-bold text-white capitalize">
+          <Link to="/">swiftshopify</Link>
+        </div>
         <nav className="space-x-6 hidden sm:flex">
           {["Home", "Products", "About", "Contact"].map((item) => (
             <motion.a

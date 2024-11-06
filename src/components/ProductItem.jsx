@@ -13,7 +13,7 @@ const ProductItem = ({ product }) => {
       <Link to={`/product/${product.slug}`} className="h-full w-full block">
         <div className="flex flex-col h-full w-full">
           {/* Product Image */}
-          <div className="h-3/5 w-full overflow-hidden relative">
+          <div className="h-4/5  w-full overflow-hidden relative">
             <img
               src={product.images[0]}
               alt={product.title}
