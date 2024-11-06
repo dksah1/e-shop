@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import { useGetAll } from "../hooks/useProductHook";
 import ProductItem from "./ProductItem";
 import Pagination from "./Pagination";
-import { FaShoppingCart } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const ProductList = () => {
   const [page, setPage] = useState(1);
@@ -22,26 +20,20 @@ const ProductList = () => {
   const handlePageChange = (page) => {
     setPage(page);
   };
+
   return (
     <>
-      <div className="w-full mx-[12px] my-2 flex justify-around  ">
+      <div className="w-full flex items-center justify-between px-4 pt-3  shadow-sm border-b border-gray-200">
         <input
           type="text"
           placeholder="Search products..."
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
-          className="w-1/2 p-2 border rounded-lg h-[50px]"
+          className="w-full max-w-md p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-200 transition h-[50px]"
         />
-        <div className="">
-          <Link to="/cart">
-            <button>
-              <FaShoppingCart className="bg-gray-500 rounded-full h-16 w-16 p-2 " />
-            </button>
-          </Link>
-        </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-3 lg:grid-cols-4 mx-3 items-center justify-center">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 mx-3 items-center justify-center mt-4">
         {filteredProducts?.map((product) => (
           <div key={product._id}>
             <ProductItem key={product._id} product={product} />

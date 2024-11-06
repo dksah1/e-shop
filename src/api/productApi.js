@@ -1,7 +1,6 @@
 import axios from "../services/plugins/AxiosProvider";
 
 export const getProducts = async (params) => {
-  // console.log({ params });
   const response = await axios.get(`/product/latest`, { params: params });
 
   return response;

@@ -61,7 +61,9 @@ const ProductDetails = () => {
   if (isLoading) return <div>Loading...</div>;
   if (isError) return <div>Error loading product details.</div>;
 
-  const productData = product.data;
+  const productData = product?.data;
+  console.log("productdetail", productData);
+
   const {
     images,
     title,
@@ -83,7 +85,7 @@ const ProductDetails = () => {
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         {/* Product Images */}
-        <div className="flex flex-col items-center lg:items-start">
+        <div className="flex gap-4 items-center lg:items-start">
           <div className="flex gap-4 mb-4 lg:mb-8">
             {images.map((image, idx) => (
               <img
@@ -177,17 +179,6 @@ const ProductDetails = () => {
                 Add to Wishlist
               </button>
             </div>
-
-            {/* Product Description */}
-            <div className="mt-8">
-              <h2 className="text-xl font-bold text-gray-800 mb-2">
-                Product Description
-              </h2>
-              <p
-                dangerouslySetInnerHTML={{ __html: description }}
-                className="text-gray-600"
-              ></p>
-            </div>
           </div>
 
           {/* Ratings and Reviews */}
@@ -205,6 +196,16 @@ const ProductDetails = () => {
             <p className="text-gray-500">No reviews yet.</p>
           </div>
         </div>
+      </div>
+      {/* Product Description */}
+      <div className="mt-8">
+        <h2 className="text-xl font-bold text-gray-800 mb-2">
+          Product Description
+        </h2>
+        <p
+          dangerouslySetInnerHTML={{ __html: description }}
+          className="text-gray-600"
+        ></p>
       </div>
     </motion.div>
   );
