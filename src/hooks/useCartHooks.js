@@ -5,15 +5,6 @@ import {
   updateItemInCart,
 } from "../api/productApi";
 
-// export const useCreateCart = () =>
-//   useQuery({
-//     queryKey: ["cart"],
-//     queryFn: async () => {
-//       const res = await createNewCart();
-//       return res;
-//     },
-//   });
-
 export const useGetCartDetails = (cartId) =>
   useQuery({
     queryKey: ["cartDetails", cartId],

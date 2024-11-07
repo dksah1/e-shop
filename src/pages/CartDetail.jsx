@@ -75,7 +75,6 @@ const CartDetail = () => {
         </div>
 
         <div className="flex flex-col lg:flex-row gap-6 items-start">
-          {/* Cart Items Section */}
           <div className="flex-1 w-full lg:w-2/3 rounded-lg shadow-md p-4 bg-white">
             <h4 className="text-lg font-medium text-gray-700">Items</h4>
             <div className="divide-y divide-gray-200">
@@ -132,8 +131,6 @@ const CartDetail = () => {
                 ))}
             </div>
           </div>
-
-          {/* Checkout Section */}
           <div className="w-full lg:w-1/3 p-6 bg-gray-100 rounded-lg shadow-lg">
             <h4 className="text-lg font-semibold text-gray-800">
               Order Summary
