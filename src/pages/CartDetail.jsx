@@ -69,7 +69,7 @@ const CartDetail = () => {
           </h2>
           <Link to="/">
             <button>
-              <HiArrowLeft className="w-10 h-10 text-blue-500" />
+              <HiArrowLeft className="w-10 h-10 text-orange-500" />
             </button>
           </Link>
         </div>
@@ -145,7 +145,7 @@ const CartDetail = () => {
               </p>
             </div>
             <button
-              className="w-full py-2 mt-4 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition duration-200"
+              className="w-full py-2 mt-4 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition duration-200"
               onClick={() => console.log("Proceeding to checkout")}
             >
               Checkout

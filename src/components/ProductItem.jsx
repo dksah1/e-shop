@@ -6,62 +6,57 @@ import { FaStar } from "react-icons/fa";
 const ProductItem = ({ product }) => {
   return (
     <motion.div
-      className="relative flex flex-col items-center justify-start w-full h-72 sm:h-80 md:h-96 lg:h-[28rem] bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-lg transition-shadow duration-300"
+      className="relative flex flex-col items-center justify-start w-full h-72 sm:h-80 md:h-96 lg:h-[24rem] bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-lg hover:shadow-blue-100 transition-shadow duration-300 pb-4 sm:pb-0"
       whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.98 }}
     >
       <Link to={`/product/${product?.slug}`} className="h-full w-full block">
         <div className="flex flex-col h-full w-full">
-          {/* Product Image */}
-          <div className="h-3/5 w-full overflow-hidden relative">
+          <div className="h-4/5 w-full overflow-hidden relative">
             <img
-              src={product.images[0]}
-              alt={product.title}
+              src={product?.images[0]}
+              alt={product?.title}
               className="w-full h-full object-cover transition-transform duration-300"
             />
-            {/* Discount Badge */}
-            {product.offPercent > 0 && (
+            {product?.offPercent > 0 && (
               <div className="absolute top-2 left-2 bg-red-500 text-white text-xs font-semibold px-2 py-1 rounded-full">
-                -{product.offPercent}%
+                -{product?.offPercent}%
               </div>
             )}
           </div>
 
-          {/* Product Details */}
           <div className="h-2/5 w-full bg-white p-3 space-y-1">
             <h2 className="text-sm font-semibold text-gray-800 text-left line-clamp-2">
-              {product.title}
+              {product?.title}
             </h2>
             <p className="text-xs text-gray-500 text-left">
-              Brand: {product.brand.name}
+              Brand: {product?.brand?.name}
             </p>
 
-            {/* Pricing */}
             <div className="flex items-center space-x-1 text-left">
               <span className="text-sm font-bold text-orange-500">
-                Rs.{product.price}
+                Rs.{product?.price}
               </span>
               {product.offPercent > 0 && (
                 <span className="text-xs text-gray-500 line-through">
-                  Rs.{product.strikePrice}
+                  Rs.{product?.strikePrice}
                 </span>
               )}
             </div>
 
-            {/* Ratings */}
             <div className="flex items-center text-yellow-400 text-xs">
               {Array.from({ length: 5 }).map((_, i) => (
                 <FaStar
                   key={i}
                   className={`${
-                    i < Math.round(product.ratings)
+                    i < Math.round(product?.ratings)
                       ? "text-yellow-400"
                       : "text-gray-300"
                   }`}
                 />
               ))}
               <span className="ml-1 text-gray-500">
-                ({product.totalRatings})
+                ({product?.totalRatings})
               </span>
             </div>
           </div>

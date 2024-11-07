@@ -28,7 +28,7 @@ const ProductList = ({ searchTerm }) => {
 
   return (
     <>
-      <div className="grid  grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  items-center justify-center mx-5 mt-20">
+      <div className="grid  grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  items-center justify-center mx-5 sm:mt-20 mt-28">
         {filteredProducts?.map((product) => (
           <div key={product._id}>
             <ProductItem key={product._id} product={product} />

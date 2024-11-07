@@ -44,7 +44,7 @@ export const Pagination = ({ pageInfo, handlePageChange }) => {
               onClick={() => gotoPreviousPage()}
               className={`flex items-center justify-center w-10 h-10 rounded-full ${
                 hasPreviousPage()
-                  ? "bg-blue-500 text-white hover:bg-blue-600 shadow-md transition duration-200"
+                  ? "bg-orange-500 text-white hover:bg-orange-600 shadow-md transition duration-200"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
             >
@@ -56,7 +56,7 @@ export const Pagination = ({ pageInfo, handlePageChange }) => {
               onClick={() => gotoNextPage()}
               className={`flex items-center justify-center w-10 h-10 rounded-full ${
                 hasNextPage()
-                  ? "bg-blue-500 text-white hover:bg-blue-600 shadow-md transition duration-200"
+                  ? "bg-orange-500 text-white hover:bg-orange-600 shadow-md transition duration-200"
                   : "bg-gray-300 text-gray-500 cursor-not-allowed"
               }`}
             >

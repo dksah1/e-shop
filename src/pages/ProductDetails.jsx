@@ -65,7 +65,6 @@ const ProductDetails = () => {
   if (isError) return <div>Error loading product details.</div>;
 
   const productData = product?.data;
-  console.log("productdetail", productData);
 
   const {
     images,
@@ -84,11 +83,11 @@ const ProductDetails = () => {
     <motion.div
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      className="mx-auto mt-16 p-8 bg-gray-50 min-h-screen"
+      className="mx-auto mt-16 p-6 bg-gray-50 min-h-screen"
     >
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div className="flex gap-4 items-center lg:items-start">
-          <div className="flex flex-col gap-4 mb-4 lg:mb-8">
+          <div className="sm:flex sm:flex-col hidden gap-4 mb-4 lg:mb-8">
             {images.map((image, idx) => (
               <img
                 key={idx}
@@ -101,12 +100,11 @@ const ProductDetails = () => {
           <img
             src={images[0]}
             alt={title}
-            className="w-full max-w-md h-auto object-cover rounded-lg shadow-md"
+            className="w-full max-w-md mt-4 h-auto object-cover rounded-lg shadow-md"
           />
         </div>
 
-        {/* Product Information */}
-        <div className="flex flex-col justify-between p-6 bg-white rounded-lg shadow-lg">
+        <div className="flex flex-col justify-between p-6  bg-white rounded-lg shadow-lg">
           <div>
             <h1 className="text-3xl font-bold text-gray-800 mb-2">{title}</h1>
             <p className="text-sm text-gray-500 mb-4">
@@ -125,13 +123,12 @@ const ProductDetails = () => {
               </span>
             </div>
 
-            {/* Size Variants */}
             {sizeVariants && sizeVariants.length > 0 && (
               <div className="mb-4">
                 <p className="text-lg font-medium text-gray-700">
                   Available Sizes:
                 </p>
-                <div className="flex gap-2 mt-2">
+                <div className="flex flex-col sm:flex-row gap-2 mt-2">
                   {sizeVariants.map((variant) => (
                     <button
                       key={variant._id}
@@ -144,8 +141,7 @@ const ProductDetails = () => {
               </div>
             )}
 
-            {/* Quantity Selector */}
-            <div className="flex items-center mt-4 gap-2">
+            <div className="flex   items-center mt-4 gap-2">
               <span className="font-semibold text-gray-700"> Quantity:</span>
               <button
                 onClick={decrementQuantity}
@@ -167,16 +163,15 @@ const ProductDetails = () => {
               </button>
             </div>
 
-            {/* Add to Cart Button */}
-            <div className="flex gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row gap-4 mt-6">
               <button
                 onClick={handleAddToCart}
-                className="flex items-center px-4 py-2 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+                className="flex items-center justify-center px-4 py-2 bg-orange-600 text-white font-semibold rounded-md hover:bg-orange-700 transition"
               >
                 <FiShoppingCart className="mr-2" />
                 Add to Cart
               </button>
-              <button className="flex items-center px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-md hover:bg-gray-300 transition">
+              <button className="flex items-center justify-center px-4 py-2 bg-gray-200 text-gray-800 font-semibold rounded-md hover:bg-gray-300 transition">
                 <FiHeart className="mr-2" />
                 Add to Wishlist
               </button>
@@ -184,9 +179,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      {/* Product Description */}
 
-      {/* Ratings and Reviews */}
       <div className="mt-8">
         <h2 className="text-xl font-bold text-gray-800 mb-2">
           Ratings and Reviews

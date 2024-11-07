@@ -5,7 +5,6 @@ const Footer = () => {
   return (
     <footer className=" sticky bg-gray-900 text-gray-300 py-12">
       <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Section 1: Logo and About */}
         <div>
           <h2 className="text-2xl font-semibold text-white mb-4">E-Shop</h2>
           <p className="text-sm">
@@ -44,7 +43,6 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Section 2: Quick Links */}
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">Quick Links</h3>
           <ul className="space-y-2">
@@ -76,7 +74,6 @@ const Footer = () => {
           </ul>
         </div>
 
-        {/* Section 3: Newsletter */}
         <div>
           <h3 className="text-xl font-semibold text-white mb-4">
             Stay Connected
@@ -89,16 +86,16 @@ const Footer = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-3 py-2 rounded-l-md border-none focus:ring-2 focus:ring-orange-500"
             />
-            <button className="bg-indigo-500 text-white px-4 py-2 rounded-r-md hover:bg-indigo-600">
+            <button className="bg-orange-500 text-white px-4 py-2 rounded-r-md hover:bg-orange-600">
               Subscribe
             </button>
           </form>
         </div>
       </div>
       <div className="border-t border-gray-700 mt-8 pt-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} E-Shop. All rights reserved.
+        @ {new Date().getFullYear()} Swiftshopify. All rights reserved.
       </div>
     </footer>
   );
