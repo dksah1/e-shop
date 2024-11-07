@@ -7,7 +7,6 @@ import { RingLoader } from "react-spinners";
 const ProductList = ({ searchTerm }) => {
   const [page, setPage] = useState(1);
   const { data, error, isLoading } = useGetAll({ page, limit: 6 });
-
   if (isLoading)
     return (
       <div className="flex items-center justify-center w-full h-screen bg-blue-200">
@@ -28,7 +27,7 @@ const ProductList = ({ searchTerm }) => {
 
   return (
     <>
-      <div className="grid  grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5  items-center justify-center mx-5 sm:mt-20 mt-28">
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 items-center justify-center mx-5 sm:mt-20 mt-28">
         {filteredProducts?.map((product) => (
           <div key={product._id}>
             <ProductItem key={product._id} product={product} />

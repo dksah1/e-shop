@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { useAddItemToCart } from "../hooks/useCartHooks";
 import { useGetProductDetails } from "../hooks/useProductHook";
-import { motion } from "framer-motion";
 import { FiShoppingCart, FiHeart } from "react-icons/fi";
 import { createNewCart } from "../api/productApi";
 import { toast } from "react-toastify";
@@ -80,11 +79,7 @@ const ProductDetails = () => {
   } = productData;
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      className="mx-auto mt-16 p-6 bg-gray-50 min-h-screen"
-    >
+    <div className="mx-auto mt-16 p-6 bg-gray-50 min-h-screen">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
         <div className="flex gap-4 items-center lg:items-start">
           <div className="sm:flex sm:flex-col hidden gap-4 mb-4 lg:mb-8">
@@ -100,7 +95,7 @@ const ProductDetails = () => {
           <img
             src={images[0]}
             alt={title}
-            className="w-full max-w-md mt-4 h-auto object-cover rounded-lg shadow-md"
+            className="w-full max-w-md object-cover rounded-lg shadow-md"
           />
         </div>
 
@@ -202,7 +197,7 @@ const ProductDetails = () => {
           className="text-gray-600"
         ></p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

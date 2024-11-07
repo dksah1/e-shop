@@ -1,15 +1,10 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 const ProductItem = ({ product }) => {
   return (
-    <motion.div
-      className="relative flex flex-col items-center justify-start w-full h-72 sm:h-80 md:h-96 lg:h-[24rem] bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-lg hover:shadow-blue-100 transition-shadow duration-300 pb-4 sm:pb-0"
-      whileHover={{ scale: 1.05 }}
-      whileTap={{ scale: 0.98 }}
-    >
+    <div className="relative flex flex-col items-center justify-start w-full h-72 sm:h-80 md:h-96 lg:h-[24rem] bg-white border border-gray-200 rounded-md overflow-hidden shadow-sm hover:shadow-lg hover:shadow-blue-100 transition-shadow duration-300 pb-4 sm:pb-0">
       <Link to={`/product/${product?.slug}`} className="h-full w-full block">
         <div className="flex flex-col h-full w-full">
           <div className="h-4/5 w-full overflow-hidden relative">
@@ -26,7 +21,7 @@ const ProductItem = ({ product }) => {
           </div>
 
           <div className="h-2/5 w-full bg-white p-3 space-y-1">
-            <h2 className="text-sm font-semibold text-gray-800 text-left line-clamp-2">
+            <h2 className="text-sm font-semibold text-gray-800 text-left line-clamp-2 h-9">
               {product?.title}
             </h2>
             <p className="text-xs text-gray-500 text-left">
@@ -62,7 +57,7 @@ const ProductItem = ({ product }) => {
           </div>
         </div>
       </Link>
-    </motion.div>
+    </div>
   );
 };
 

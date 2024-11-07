@@ -6,9 +6,11 @@ const Footer = () => {
     <footer className=" sticky bg-gray-900 text-gray-300 py-12">
       <div className="max-w-6xl mx-auto px-4 md:px-8 grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h2 className="text-2xl font-semibold text-white mb-4">E-Shop</h2>
+          <h2 className="text-2xl font-semibold text-white mb-4">
+            Swiftshopify
+          </h2>
           <p className="text-sm">
-            Welcome to E-Shop, your one-stop destination for top-quality
+            Welcome to Swiftshopify, your one-stop destination for top-quality
             products. Discover the best deals and trends all year round.
           </p>
           <div className="flex space-x-4 mt-4">

@@ -25,6 +25,7 @@ const App = () => {
       setCartQuantity(totalQuantity);
     }
   }, [cartData]);
+
   return (
     <>
       <Header
@@ -33,7 +34,7 @@ const App = () => {
         cartQuantity={cartQuantity}
       />
       <Routes>
-        <Route path="/" element={<ProductPage />} />
+        <Route path="/" element={<ProductPage searchTerm={searchTerm} />} />
         <Route path="/cart" element={<CartDetail />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
       </Routes>

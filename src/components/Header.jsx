@@ -22,13 +22,13 @@ const Header = ({ searchTerm, setSearchTerm, cartQuantity }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed w-full top-0 left-0 z-50 sm:h-16 h-24 flex items-center transition-all duration-300 ${
+      className={`fixed w-full top-0 left-0 z-50 sm:h-16 h-20 flex items-center transition-all duration-300 ${
         scrolling
           ? "bg-gradient-to-r from-orange-400 to-orange-500 shadow-lg"
           : "bg-gradient-to-r from-orange-400 to-orange-500 bg-opacity-70"
       } ${scrolling ? "rounded-b-xl" : ""}`}
     >
-      <div className="container mx-auto flex sm:flex-row flex-col items-center justify-between px-4">
+      <div className="container mx-auto flex flex-nowrap  items-center justify-between sm:px-4 px-2">
         <div className="text-2xl  font-bold text-white capitalize">
           <Link to="/">swiftshopify</Link>
         </div>
@@ -54,7 +54,7 @@ const Header = ({ searchTerm, setSearchTerm, cartQuantity }) => {
             placeholder="Search products..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-44 sm:w-64 md:w-[600px] ml-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-300 transition h-10 mr-4"
+            className="w-40 sm:w-64 md:w-[400px] lg:w-[600px] ml-2 p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring focus:ring-yellow-300 transition h-10 mr-1 sm:mr-4"
           />
           <Link to="/cart" className="relative">
             <button className="flex items-center justify-centern bg-orange-400 text-white rounded-full p-4 shadow-md hover:bg-yellow-500 transition sm:ml-24 ">
