@@ -21,11 +21,11 @@ Check out the live demo of the project here: [Project Demo URL](https://swiftsho
 
 ### Full View
 
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/dksah1/proshore-store/3e3fd77964ff08aa7f4685f7f46d4c03ed540521/screenshots/ss-1.jpg)
 
 ### Responsive View
 
-![Screenshot]()
+![Screenshot](https://raw.githubusercontent.com/dksah1/proshore-store/3e3fd77964ff08aa7f4685f7f46d4c03ed540521/screenshots/ss-6.jpg)
 
 ## Installation
 
