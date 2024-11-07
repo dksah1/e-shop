@@ -17,16 +17,6 @@ This project is a demonstration for the interview task. It showcases the followi
 
 Check out the live demo of the project here: [Project Demo URL](https://swiftshopify.netlify.app/)
 
-## Project Screenshots
-
-### Full View
-
-![Screenshot](ss1.png)
-
-### Responsive View
-
-![Screenshot](https://raw.githubusercontent.com/dksah1/e-shop/3e3fd77964ff08aa7f4685f7f46d4c03ed540521/screenshots/ss6.jpg)
-
 ## Installation
 
 To install and run this project locally, follow these steps:
