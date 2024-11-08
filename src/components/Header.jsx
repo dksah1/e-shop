@@ -60,7 +60,7 @@ const Header = ({ searchTerm, setSearchTerm, cartQuantity }) => {
             <button className="flex items-center justify-centern bg-orange-400 text-white rounded-full p-4 shadow-md hover:bg-yellow-500 transition sm:ml-24 ">
               <FaShoppingCart className="h-6 w-6  " />
               {cartQuantity > 0 && (
-                <span className="absolute top-0 mr-2 bg-green-500 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
+                <span className="absolute top-0 right-0  bg-green-500 text-white text-xs font-semibold rounded-full h-5 w-5 flex items-center justify-center">
                   {cartQuantity}
                 </span>
               )}
