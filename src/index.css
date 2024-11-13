@@ -5,3 +5,34 @@
 body {
   background-color: rgb(244, 244, 245);
 }
+
+.product-description-container img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .product-description-container img {
+    object-fit: contain;
+    max-height: 800px;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-description-container img {
+    object-fit: cover;
+    max-height: 650;
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-description-container img {
+    max-height: 200px;
+  }
+}

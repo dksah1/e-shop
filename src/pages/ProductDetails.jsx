@@ -192,10 +192,12 @@ const ProductDetails = () => {
         <h2 className="text-xl font-bold text-gray-800 mb-2">
           Product Description
         </h2>
-        <p
-          dangerouslySetInnerHTML={{ __html: description }}
-          className="text-gray-600"
-        ></p>
+        <div className="product-description-container">
+          <p
+            dangerouslySetInnerHTML={{ __html: description }}
+            className="text-gray-600 description-text"
+          ></p>
+        </div>
       </div>
     </div>
   );
